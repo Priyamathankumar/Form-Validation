@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <h1 style="color: blue;">Form validation</h1>
+    <style>
+        .error-message {
+           color:red;
+           font-size: 12px;
+        }
+        body{
+            justify-content: center;
+            position: absolute;
+            left: 40%;
+            top: 15%;
+            color:brown;
+            background-color: aquamarine;
+            padding: 20px;
+            font-weight: 700;
+
+
+            
+        }
+        button{
+            color: beige;
+            background-color: red;
+            border-radius: 20px;
+            padding: 5px;
+        }
+        input{
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-bottom-style: solid;
+        background: none;
+        }
+        form{
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myproject"  action="xyz.html" method="POST">
+        
+    FirstName:<input type="text"  id="fn">
+    <span id="a" class="error-message"></span><br>
+    LastName:<input type="text" id="ln">
+    <span id="b" class="error-message"></span> <br>
+    Enter your Email-id:<input type="text" id="mail">
+    <span id="c" class="error-message"></span><br>
+    Password:<input type="text" id="pass">
+    <span id="d" class="error-message"></span><br>
+   
+    <button type="button" onclick="validateform()">Submit</button>
+    
+     </form> 
+<script>
+function validateform(){
+    document.getElementById("a").innerText="";
+    let fn=document.getElementById("fn").value.trim();
+    let regex= /^[a-zA-Z]+$/;
+    if(regex.test(fn)){
+        document.getElementById("a").innerText="";
+    }
+    else{
+        
+        document.getElementById("a").innerText=" Enter Valid Name";
+    }
+
+    
+    document.getElementById("b").innerText="";
+    let ln=document.getElementById("ln").value.trim();
+    let regex1= /^[a-zA-Z]+$/;
+    if(regex1.test(ln)){
+        document.getElementById("b").innerText="";
+    }
+    else{
+        
+        document.getElementById("b").innerText="Enter valid name";
+    }
+   
+    document.getElementById("c").innerText="";
+    let mail=document.getElementById("mail").value.trim();
+    let regex2=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(regex2.test(mail)){
+        document.getElementById("c").innerText="";
+    }
+    else{
+        
+        document.getElementById("c").innerText="Enter valid Mailid";
+    }
+
+    document.getElementById("d").innerText="";
+    let pass=document.getElementById("pass").value.trim();
+    let regex3=/^[a-a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    if(regex3.test(pass)){
+        document.getElementById("d").innerText="";
+    }
+        
+    else{
+        document.getElementById("d").innerText="Enter vaild Password";
+    }
+
+
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
